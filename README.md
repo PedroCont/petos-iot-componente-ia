@@ -1,6 +1,6 @@
-# 🐾 PetOS — Componente de Inteligência Artificial (CLYVO VET)
+# 🐾 PetOS — Componente de Inteligência Artificial
 
-Modelo de IA para **priorização de risco de saúde** de pets e animais silvestres, a partir dos dados da coleira inteligente (ESP32 + DHT22 + PIR) desenvolvida na etapa de IoT do projeto PetOS.
+Modelo de IA para **priorização de risco de saúde** de pets, a partir dos dados da coleira inteligente (ESP32 + DHT22 + PIR) desenvolvida na etapa de IoT do projeto PetOS.
 
 > Documentação técnica completa (problema, dados, personalização, arquitetura): [`docs/DOCUMENTACAO_IA.md`](docs/DOCUMENTACAO_IA.md)
 
