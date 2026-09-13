@@ -1,16 +1,16 @@
-# Documentação do Componente de Inteligência Artificial — PetOS / CLYVO VET
+# Documentação do Componente de Inteligência Artificial — PetOS
 
 ## 1. Problema de Negócio
 
 A coleira IoT do PetOS (ESP32 + DHT22 + PIR) hoje opera com **limiares fixos**: se a temperatura ultrapassa 35°C ou a umidade sai de uma faixa pré-definida, o sistema dispara um alerta genérico — igual para qualquer animal.
 
-Isso gera três limitações dentro da jornada contínua de cuidado do pet (e também dos animais silvestres atendidos pela CLYVO VET):
+Isso gera três limitações dentro da jornada contínua de cuidado do pet:
 
-1. **Falta de personalização fisiológica.** Um filhote, um idoso e um animal silvestre (ex: uma ave em reabilitação) têm faixas normais de temperatura, umidade e atividade diferentes entre si. Um limiar único gera tanto falsos alarmes quanto alertas tardios.
+1. **Falta de personalização fisiológica.** Um filhote, um idoso e um animal em reabilitação (ex: uma ave em reabilitação) têm faixas normais de temperatura, umidade e atividade diferentes entre si. Um limiar único gera tanto falsos alarmes quanto alertas tardios.
 2. **Ausência de priorização.** O tutor recebe "atenção necessária" sem saber a gravidade real nem qual ação tomar.
 3. **Nenhum aprendizado a partir do histórico.** O sistema não evolui com os dados do próprio animal, nem cruza a leitura do sensor com informações já registradas (idade, espécie, histórico clínico).
 
-**Problema definido:** *Como transformar o monitoramento reativo e genérico (baseado em limiares fixos) em um monitoramento preventivo, personalizado por animal — incluindo espécies silvestres — e priorizado por nível de risco, apoiando tutor e clínica na tomada de decisão?*
+**Problema definido:** *Como transformar o monitoramento reativo e genérico (baseado em limiares fixos) em um monitoramento preventivo, personalizado por animal e priorizado por nível de risco, apoiando tutor e clínica na tomada de decisão?*
 
 ## 2. Abordagem de IA Escolhida
 
