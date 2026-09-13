@@ -1,0 +1,35 @@
+flowchart TD
+    subgraph IoT["Coleira Inteligente - ESP32"]
+        SENS["Sensores: DHT22 (temp/umidade) + PIR (movimento)"]
+    end
+
+    subgraph APP["Aplicacao PetOS - Backend"]
+        API_APP["API principal / Backend"]
+    end
+
+    subgraph IA["Componente de IA - Flask + Docker"]
+        API_IA["API /predict"]
+        MODELO[("Modelo RandomForest (.pkl)")]
+        API_IA --> MODELO
+    end
+
+    subgraph DB["Banco de Dados"]
+        PERFIL[("Perfil do animal: especie, idade, porte")]
+        HIST[("Historico: leituras, consultas, vacinas, alertas")]
+    end
+
+    subgraph USERS["Usuarios"]
+        TUTOR["App do Tutor"]
+        CLINICA["Dashboard da Clinica"]
+    end
+
+    SENS -->|"leitura periodica: temp, umidade, movimento"| API_APP
+    API_APP -->|"grava leitura bruta"| HIST
+    API_APP -->|"busca perfil do animal"| PERFIL
+    API_APP -->|"POST leitura + perfil"| API_IA
+    API_IA -->|"nivel_risco + probabilidades"| API_APP
+    API_APP -->|"grava resultado"| HIST
+    API_APP -->|"risco alto: notificacao"| TUTOR
+    API_APP -->|"risco alto: alerta"| CLINICA
+    TUTOR -->|"consulta historico"| API_APP
+    CLINICA -->|"consulta historico/prontuario"| API_APP
